@@ -101,4 +101,19 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Err("User not found");
   }
 });
-export { authUser, getUserProfile, updateUserProfile, registerUser };
+
+// @desc    Get user profile
+// @route   GET /api/users
+// @access  Private/Admin
+const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
+
+export {
+  authUser,
+  getUserProfile,
+  updateUserProfile,
+  registerUser,
+  getAllUsers,
+};
