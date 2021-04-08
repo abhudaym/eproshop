@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  ListGroupItem,
-} from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Message from "../components/Message";
-import FormContainer from "../components/FormContainer";
-import { saveShippingAddress } from "../actions/cartActions";
+
 import { CheckoutSteps } from "../components/CheckoutSteps";
 import { createOrder } from "../actions/orderActions";
 

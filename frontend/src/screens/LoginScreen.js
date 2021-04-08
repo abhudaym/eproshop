@@ -23,10 +23,12 @@ const LoginScreen = ({ location, history }) => {
       history.push(redirect);
     }
   }, [history, userInfo, redirect]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
   };
+
   return (
     <FormContainer>
       <h1>Sign In</h1>
@@ -39,20 +41,17 @@ const LoginScreen = ({ location, history }) => {
             type="email"
             placeholder="Enter email"
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
+
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter password"
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
@@ -60,6 +59,7 @@ const LoginScreen = ({ location, history }) => {
           Sign In
         </Button>
       </Form>
+
       <Row className="py-3">
         <Col>
           New Customer?{" "}
