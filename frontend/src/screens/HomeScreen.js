@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +7,7 @@ import { listProducts } from "../actions/productActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
+import ProductCarousel from "../components/ProductCarousel";
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
   const pageNumber = match.params.pageNumber || 1;
@@ -20,6 +22,14 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <Helmet>
+        <title>Welcome to ProShop | Home</title>
+        <meta
+          name="description"
+          content="eCommerce Website developed by Abhuday"
+        />
+      </Helmet>
+      {!keyword && <ProductCarousel />}
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
